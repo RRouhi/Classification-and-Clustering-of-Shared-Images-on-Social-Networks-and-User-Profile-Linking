@@ -82,7 +82,7 @@ for k = 1 : numberOfFolders
                 path=fullfile(thisFolder,imgind);
                 r=listimg(ind);%whole inf of residual noise
                 r=imresize(r.RN,dim);
-                ave(path,'r');
+                save(path,'r');
                 ind=ind+1; 
            end
 %             clear listimg;
