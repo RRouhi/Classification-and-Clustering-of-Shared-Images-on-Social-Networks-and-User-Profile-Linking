@@ -84,7 +84,7 @@ for g=1:numel(prt)
         clear CL_O;
         CL_O(1,1:numel(h))=CL(h,1);
     end
-    [C,~,T_S_pn,S_pn_O,DIST,Mark,C_T,I_O]=clsr_Mabi(CL_O,f,flag,D,h,dim,S_pn_O,DIST,Mark,g,q,thr,C_T,I_O,list,omega);
+    [C,~,T_S_pn,S_pn_O,DIST,Mark,C_T,I_O]=clsr(CL_O,f,flag,D,h,dim,S_pn_O,DIST,Mark,g,q,thr,C_T,I_O,list,omega);
     
 %Saving and appending the obtained clusters
      disp(['##############Saving: # ',num2str(numel(C)),' images...']);
