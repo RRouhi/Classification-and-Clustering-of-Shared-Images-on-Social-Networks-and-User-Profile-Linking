@@ -8,3 +8,5 @@ If you found the codes useful for your work, please cite my work as follows:
   year={2020},
   school={alma}
 }
+
+The thesis is written in English and you can download it via the link: http://amsdottorato.unibo.it/9403/
