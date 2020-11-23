@@ -1,7 +1,8 @@
 function [F,pr,re,ac,ARI,sp,fpr,N_R,PURITY]=clsr_eval(ng,N,CL_G,img_user)
-%ng is the number of classes
-%N is the number of images
-
+%ng is the number of the desirable classes
+%N is the total number of images
+%CL_G is a cell array including the results of clustering
+%img_user is the number of images in each folder, used for reading images
 nd=numel(CL_G);
 i=1;
 j=0;
@@ -34,18 +35,6 @@ end
 A=intersect(IDX,Tr,'rows','legacy');%TP
 B=setdiff(IDX,Tr,'rows','legacy');%FP
 C=setdiff(Tr,IDX,'rows','legacy');%FN
-% % %https://stats.stackexchange.com/questions/15158/precision-and-recall-for-clustering
-% % %The only thing that is potentially tricky 
-% % %is that a given point may appear in multiple clusters.
-% % %The authors appear to look at all pairs of points, 
-% % %say (x,y), and ask whether one of the clusters that contains
-% % %point x also contains point y. A true positive (tp) is when this
-% % %is both the case in truth and for the inferred clusters. A false positive
-% % %(fp) would be when this is not the case in truth but is the case for the
-% % %inferred clusters. A false negative (fn) would be when this is the case
-% % %in truth but not for the inferred clusters.
-% Then precision = tp / (tp + fp) and recall = tp / (tp + fn), Specificity=TN / (FP + TN)
-%FPR=FP/(FP+TN)
 
 a=size(A,1);%TP
 b=size(B,1);%FP
@@ -62,23 +51,6 @@ ARI=A1/A2;
 sp=d/(b+d);%Specificity
 fpr=b/(b+d);%1-specificity
 N_R=nd/ng;
-
-% 
-% for i=1:numel(CL_T)-1
-%     for j=i+1:numel(CL_G)
-%         Int_mat(i,j)=numel(intersect(CL_T{1,i},CL_G{1,j}));
-%         Int_mat(j,i)=Int_mat(i,j);
-%     end
-% end
-% i=1;
-% j=1;
-% for k=2:numel(img_user)
-%      TR(i:i+img_user(k)-1,1)=ones(img_user(k),1)*j;
-%      i=i+img_user(k);
-%      j=j+1;
-% end
-% 
-% [ARI1, RI, JaccardCoef] = AdRandIdx(CL_G, TR);
 
 %Purity
 for i=1:numel(CL_G)
