@@ -10,3 +10,5 @@ If you found the codes useful for your work, please cite my work as follows:
 }
 
 The thesis is written in English and you can download it via the link: http://amsdottorato.unibo.it/9403/
+
+For your questions regarding the code, please contact me with the email address: ra.rouhi@gmail.com
